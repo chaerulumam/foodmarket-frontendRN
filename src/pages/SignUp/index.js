@@ -2,10 +2,14 @@ import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {Button, Gap, Header, TextInput} from '../../components';
 
-const SignUp = () => {
+const SignUp = ({navigation}) => {
   return (
     <View style={styles.page}>
-      <Header title="Sign up" subTitle="Register and eat" back={() => {}} />
+      <Header
+        title="Sign up address"
+        subTitle="Register and eat"
+        back={() => {}}
+      />
       <View style={styles.container}>
         <View style={styles.photo}>
           <View style={styles.borderPhoto}>
@@ -24,7 +28,10 @@ const SignUp = () => {
         <TextInput label="Password" placeholder="Type your passwords" />
         <Gap height={24} />
 
-        <Button text="Continue" />
+        <Button
+          text="Continue"
+          onPress={() => navigation.navigate('SignUpAddress')}
+        />
       </View>
     </View>
   );
