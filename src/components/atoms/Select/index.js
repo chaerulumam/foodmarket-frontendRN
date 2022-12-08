@@ -12,8 +12,9 @@ const Select = ({label}) => {
         //   setSelectedLanguage(itemValue)
         // }
         >
-          <Picker.Item label="Java" value="java" />
-          <Picker.Item label="JavaScript" value="js" />
+          <Picker.Item label="Jakarta" value="jakarta" />
+          <Picker.Item label="Bogor" value="bogor" />
+          <Picker.Item label="Depok" value="depok" />
         </Picker>
       </View>
     </View>
