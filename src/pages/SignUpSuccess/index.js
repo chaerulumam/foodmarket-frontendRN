@@ -3,7 +3,7 @@ import React from 'react';
 import {IlSuccessSignUp} from '../../assets';
 import {Button, Gap} from '../../components';
 
-const SignUpSuccess = () => {
+const SignUpSuccess = ({navigation}) => {
   return (
     <View style={styles.page}>
       <IlSuccessSignUp />
@@ -14,7 +14,10 @@ const SignUpSuccess = () => {
       <Text style={styles.subTitle}>some foods as a self-reward</Text>
       <Gap height={30} />
       <View style={styles.buttonContainer}>
-        <Button text="Find Foods" />
+        <Button
+          text="Find Foods"
+          onPress={() => navigation.replace('MainApp')}
+        />
       </View>
     </View>
   );
