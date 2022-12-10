@@ -1,4 +1,5 @@
 import IcBack from './ic-back.svg';
+import IcBackWhite from './ic-back-white.svg';
 import IcHomeOff from './ic-home-off.svg';
 import IcHomeOn from './ic-home-on.svg';
 import IcOrderOff from './ic-order-off.svg';
@@ -7,9 +8,12 @@ import IcProfileOff from './ic-profile-off.svg';
 import IcProfileOn from './ic-profile-on.svg';
 import IcStarOff from './ic-star-off.svg';
 import IcStarOn from './ic-star-on.svg';
+import IcButtonMin from './ic-btn-min.svg';
+import IcButtonAdd from './ic-btn-add.svg';
 
 export {
   IcBack,
+  IcBackWhite,
   IcHomeOff,
   IcHomeOn,
   IcOrderOff,
@@ -18,4 +22,6 @@ export {
   IcProfileOn,
   IcStarOff,
   IcStarOn,
+  IcButtonMin,
+  IcButtonAdd,
 };
