@@ -34,103 +34,75 @@ const renderTabBar = props => (
   />
 );
 
-const NewTaste = () => {
+const InProgress = () => {
   const navigation = useNavigation();
 
   return (
     <ScrollView>
       <View style={{paddingTop: 8, paddingHorizontal: 24}}>
         <ItemListFood
-          type="product"
-          price="380.000"
-          rating={3}
           image={FoodDummy4}
           onPress={() => navigation.navigate('FoodDetail')}
           name="Cherry Healthy"
+          type="in-progress"
+          items={3}
+          price="2.000.000"
         />
         <ItemListFood
-          type="product"
-          price="380.000"
-          rating={3}
           image={FoodDummy1}
           onPress={() => navigation.navigate('FoodDetail')}
           name="Soup Bumil"
+          type="in-progress"
+          items={3}
+          price="2.000.000"
         />
         <ItemListFood
-          type="product"
-          price="380.000"
-          rating={3}
           image={FoodDummy2}
           onPress={() => navigation.navigate('FoodDetail')}
           name="Cappucino Latte"
-        />
-      </View>
-    </ScrollView>
-  );
-};
-
-const Popular = () => {
-  const navigation = useNavigation();
-
-  return (
-    <ScrollView>
-      <View style={{paddingTop: 8, paddingHorizontal: 24}}>
-        <ItemListFood
-          type="product"
-          price="380.000"
-          rating={3}
-          image={FoodDummy4}
-          onPress={() => navigation.navigate('FoodDetail')}
-          name="Cherry Healthy"
+          type="in-progress"
+          items={3}
+          price="2.000.000"
         />
         <ItemListFood
-          type="product"
-          price="380.000"
-          rating={3}
-          image={FoodDummy1}
-          onPress={() => navigation.navigate('FoodDetail')}
-          name="Soup Bumil"
-        />
-        <ItemListFood
-          type="product"
-          price="380.000"
-          rating={3}
-          image={FoodDummy2}
-          onPress={() => navigation.navigate('FoodDetail')}
-          name="Cappucino Latte"
-        />
-        <ItemListFood
-          type="product"
-          price="380.000"
-          rating={3}
           image={FoodDummy3}
           onPress={() => navigation.navigate('FoodDetail')}
           name="Iced Caramel"
+          type="in-progress"
+          items={3}
+          price="2.000.000"
         />
       </View>
     </ScrollView>
   );
 };
 
-const Recomended = () => {
+const PastOrders = () => {
   const navigation = useNavigation();
 
   return (
     <ScrollView>
       <View style={{paddingTop: 8, paddingHorizontal: 24}}>
         <ItemListFood
-          type="product"
-          price="380.000"
+          rating={3}
           image={FoodDummy4}
           onPress={() => navigation.navigate('FoodDetail')}
           name="Cherry Healthy"
+          type="past-orders"
+          items={3}
+          price="2.000.000"
+          date="Jun 12, 14:00"
         />
         <ItemListFood
-          type="product"
-          price="380.000"
+          rating={3}
           image={FoodDummy1}
           onPress={() => navigation.navigate('FoodDetail')}
           name="Soup Bumil"
+          type="past-orders"
+          items={3}
+          price="2.000.000"
+          date="Jun 12, 14:00"
+          status="Cancelled"
         />
       </View>
     </ScrollView>
@@ -139,18 +111,16 @@ const Recomended = () => {
 
 const initialLayout = {width: Dimensions.get('window').width};
 
-const HomeTabSection = () => {
+const OrderTabSection = () => {
   const [index, setIndex] = React.useState(0);
   const [routes] = React.useState([
-    {key: '1', title: 'New Taste'},
-    {key: '2', title: 'Popular'},
-    {key: '3', title: 'Recomended'},
+    {key: '1', title: 'In Progress'},
+    {key: '2', title: 'Past Orders'},
   ]);
 
   const renderScene = SceneMap({
-    1: NewTaste,
-    2: Popular,
-    3: Recomended,
+    1: InProgress,
+    2: PastOrders,
   });
 
   return (
@@ -165,6 +135,6 @@ const HomeTabSection = () => {
   );
 };
 
-export default HomeTabSection;
+export default OrderTabSection;
 
 const styles = StyleSheet.create({});
