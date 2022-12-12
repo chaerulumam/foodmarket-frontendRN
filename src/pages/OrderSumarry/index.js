@@ -3,7 +3,7 @@ import React from 'react';
 import {Button, Header, ItemListFood, ItemValue} from '../../components';
 import {FoodDummy4} from '../../assets';
 
-const OrderSummary = () => {
+const OrderSummary = ({navigation}) => {
   return (
     <View>
       <Header
@@ -35,7 +35,10 @@ const OrderSummary = () => {
       </View>
 
       <View style={styles.button}>
-        <Button text="Checkout now" />
+        <Button
+          text="Checkout now"
+          onPress={() => navigation.replace('SuccessOrder')}
+        />
       </View>
     </View>
   );
