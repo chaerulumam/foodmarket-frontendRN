@@ -18,7 +18,11 @@ const OrderSummary = () => {
         <ItemValue label="Cherry Healthy" value="IDR 18.390.000" />
         <ItemValue label="Driver" value="IDR 50.000" />
         <ItemValue label="Tax 10%" value="IDR 1.800.390" />
-        <ItemValue label="Total Price" value="IDR 390.803.000" />
+        <ItemValue
+          label="Total Price"
+          value="IDR 390.803.000"
+          colorValue="#1ABC9C"
+        />
       </View>
 
       <View style={styles.content}>
