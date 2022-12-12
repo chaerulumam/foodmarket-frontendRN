@@ -39,18 +39,21 @@ const NewTaste = () => {
 
   return (
     <ScrollView>
-      <View style={{paddingTop: 8}}>
+      <View style={{paddingTop: 8, paddingHorizontal: 24}}>
         <ItemListFood
+          rating={3}
           image={FoodDummy4}
           onPress={() => navigation.navigate('FoodDetail')}
           title="Cherry Healthy"
         />
         <ItemListFood
+          rating={3}
           image={FoodDummy1}
           onPress={() => navigation.navigate('FoodDetail')}
           title="Soup Bumil"
         />
         <ItemListFood
+          rating={3}
           image={FoodDummy2}
           onPress={() => navigation.navigate('FoodDetail')}
           title="Cappucino Latte"
@@ -65,23 +68,27 @@ const Popular = () => {
 
   return (
     <ScrollView>
-      <View style={{paddingTop: 8}}>
+      <View style={{paddingTop: 8, paddingHorizontal: 24}}>
         <ItemListFood
+          rating={3}
           image={FoodDummy4}
           onPress={() => navigation.navigate('FoodDetail')}
           title="Cherry Healthy"
         />
         <ItemListFood
+          rating={3}
           image={FoodDummy1}
           onPress={() => navigation.navigate('FoodDetail')}
           title="Soup Bumil"
         />
         <ItemListFood
+          rating={3}
           image={FoodDummy2}
           onPress={() => navigation.navigate('FoodDetail')}
           title="Cappucino Latte"
         />
         <ItemListFood
+          rating={3}
           image={FoodDummy3}
           onPress={() => navigation.navigate('FoodDetail')}
           title="Iced Caramel"
@@ -96,7 +103,7 @@ const Recomended = () => {
 
   return (
     <ScrollView>
-      <View style={{paddingTop: 8}}>
+      <View style={{paddingTop: 8, paddingHorizontal: 24}}>
         <ItemListFood
           image={FoodDummy4}
           onPress={() => navigation.navigate('FoodDetail')}

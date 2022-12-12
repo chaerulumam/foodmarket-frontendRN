@@ -3,7 +3,7 @@ import React from 'react';
 import Rating from '../Rating';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 
-const ItemListFood = ({image, title, onPress}) => {
+const ItemListFood = ({image, title, onPress, items, rating}) => {
   return (
     <TouchableOpacity activeOpacity={0.7} onPress={onPress}>
       <View style={styles.container}>
@@ -12,7 +12,8 @@ const ItemListFood = ({image, title, onPress}) => {
           <Text style={styles.title}>{title}</Text>
           <Text style={styles.price}>IDR 289.000</Text>
         </View>
-        <Rating />
+        {items && !rating && <Text style={styles.items}>{items} items</Text>}
+        {rating && !items && <Rating />}
       </View>
     </TouchableOpacity>
   );
@@ -24,7 +25,6 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     backgroundColor: 'white',
-    paddingHorizontal: 24,
     paddingVertical: 8,
     alignItems: 'center',
   },
@@ -46,4 +46,5 @@ const styles = StyleSheet.create({
     fontSize: 13,
     color: '#8D92A3',
   },
+  items: {fontSize: 13, fontFamily: 'Poppins-Light', color: '#8D92A3'},
 });

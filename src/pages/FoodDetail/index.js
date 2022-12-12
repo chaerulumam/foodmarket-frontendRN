@@ -4,7 +4,7 @@ import {FoodDetailPic, IcBackWhite} from '../../assets';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {Button, Counter, Rating} from '../../components';
 
-const FoodDetail = () => {
+const FoodDetail = ({navigation}) => {
   return (
     <View style={styles.page}>
       <ImageBackground source={FoodDetailPic} style={styles.cover}>
@@ -35,7 +35,10 @@ const FoodDetail = () => {
             <Text style={styles.priceTotal}>IDR 12.289.000</Text>
           </View>
           <View style={styles.button}>
-            <Button text="Order Now" />
+            <Button
+              text="Order Now"
+              onPress={() => navigation.navigate('OrderSummary')}
+            />
           </View>
         </View>
       </View>
