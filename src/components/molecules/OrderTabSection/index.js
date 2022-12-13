@@ -42,7 +42,7 @@ const InProgress = () => {
       <View style={{paddingTop: 8, paddingHorizontal: 24}}>
         <ItemListFood
           image={FoodDummy4}
-          onPress={() => navigation.navigate('FoodDetail')}
+          onPress={() => navigation.navigate('OrderDetail')}
           name="Cherry Healthy"
           type="in-progress"
           items={3}
@@ -50,7 +50,7 @@ const InProgress = () => {
         />
         <ItemListFood
           image={FoodDummy1}
-          onPress={() => navigation.navigate('FoodDetail')}
+          onPress={() => navigation.navigate('OrderDetail')}
           name="Soup Bumil"
           type="in-progress"
           items={3}
@@ -58,7 +58,7 @@ const InProgress = () => {
         />
         <ItemListFood
           image={FoodDummy2}
-          onPress={() => navigation.navigate('FoodDetail')}
+          onPress={() => navigation.navigate('OrderDetail')}
           name="Cappucino Latte"
           type="in-progress"
           items={3}
@@ -66,7 +66,7 @@ const InProgress = () => {
         />
         <ItemListFood
           image={FoodDummy3}
-          onPress={() => navigation.navigate('FoodDetail')}
+          onPress={() => navigation.navigate('OrderDetail')}
           name="Iced Caramel"
           type="in-progress"
           items={3}
@@ -86,7 +86,7 @@ const PastOrders = () => {
         <ItemListFood
           rating={3}
           image={FoodDummy4}
-          onPress={() => navigation.navigate('FoodDetail')}
+          onPress={() => navigation.navigate('OrderDetail')}
           name="Cherry Healthy"
           type="past-orders"
           items={3}
@@ -96,7 +96,7 @@ const PastOrders = () => {
         <ItemListFood
           rating={3}
           image={FoodDummy1}
-          onPress={() => navigation.navigate('FoodDetail')}
+          onPress={() => navigation.navigate('OrderDetail')}
           name="Soup Bumil"
           type="past-orders"
           items={3}
