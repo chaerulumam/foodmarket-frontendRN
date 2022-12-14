@@ -1,3 +1,4 @@
+import Axios from 'axios';
 import {ScrollView, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {Button, Gap, Header, Select, TextInput} from '../../components';
@@ -22,7 +23,14 @@ const SignUpAddress = ({navigation}) => {
       ...registerReducer,
     };
     console.log('Data Register: ', data);
-    // navigation.replace('SignUpSuccess')
+    Axios.post('http://foodmarket-backend.buildwithangga.id/api/register', data)
+      .then(res => {
+        console.log('data success: ', res.data);
+        navigation.replace('SignUpSuccess');
+      })
+      .catch(err => {
+        console.log('sign up error: ', err);
+      });
   };
 
   return (
