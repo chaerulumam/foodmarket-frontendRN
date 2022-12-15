@@ -1,9 +1,10 @@
 import Axios from 'axios';
-import {ScrollView, StyleSheet, Text, View} from 'react-native';
+import {ScrollView, StyleSheet, View} from 'react-native';
 import React from 'react';
 import {Button, Gap, Header, Select, TextInput} from '../../components';
 import {useForm} from '../../utils';
 import {useDispatch, useSelector} from 'react-redux';
+import {showMessage, hideMessage} from 'react-native-flash-message';
 
 const SignUpAddress = ({navigation}) => {
   const [form, setForm] = useForm({
@@ -25,12 +26,21 @@ const SignUpAddress = ({navigation}) => {
     console.log('Data Register: ', data);
     Axios.post('http://foodmarket-backend.buildwithangga.id/api/register', data)
       .then(res => {
-        console.log('data success: ', res.data);
+        showMessage('Register Success', 'success');
         navigation.replace('SignUpSuccess');
       })
       .catch(err => {
-        console.log('sign up error: ', err);
+        showToast(err?.response?.data?.message);
       });
+  };
+
+  const showToast = (message, type) => {
+    showMessage({
+      message,
+      type: type === 'success' ? 'success' : 'danger',
+      backgroundColor: type === 'success' ? '#1ABC9C' : '#D9435E',
+      icon: 'danger',
+    });
   };
 
   return (
