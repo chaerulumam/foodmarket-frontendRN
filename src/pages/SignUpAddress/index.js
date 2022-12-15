@@ -24,12 +24,15 @@ const SignUpAddress = ({navigation}) => {
       ...registerReducer,
     };
     console.log('Data Register: ', data);
+    dispatch({type: 'SET_LOADING', value: true});
     Axios.post('http://foodmarket-backend.buildwithangga.id/api/register', data)
       .then(res => {
+        dispatch({type: 'SET_LOADING', value: false});
         showMessage('Register Success', 'success');
         navigation.replace('SignUpSuccess');
       })
       .catch(err => {
+        dispatch({type: 'SET_LOADING', value: false});
         showToast(err?.response?.data?.message);
       });
   };
