@@ -42,14 +42,13 @@ const SignUp = ({navigation}) => {
         if (response.didCancel || response.error) {
           showMessage('Anda Tidak Memilih Photo');
         } else {
-          const source = {uri: response.uri};
+          setPhoto({uri: response.assets[0].uri});
           const dataImage = {
-            uri: response.uri,
-            type: response.type,
-            name: response.fileName,
+            uri: response.assets[0].uri,
+            type: response.assets[0].type,
+            name: response.assets[0].fileName,
           };
 
-          setPhoto(source);
           dispatch({type: 'SET_PHOTO', value: dataImage});
           dispatch({type: 'SET_UPLOAD_STATUS', value: true});
           console.log('response');
