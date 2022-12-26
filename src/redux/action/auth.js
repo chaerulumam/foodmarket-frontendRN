@@ -13,8 +13,6 @@ export const signUpAction =
         const token = `${res.data.data.token_type} ${res.data.data.access_token}`;
         const profile = res.data.data.user;
 
-        // data user
-        storeData('userProfile', profile);
         // data token
         storeData('token', {value: token});
 
@@ -27,13 +25,21 @@ export const signUpAction =
               Authorization: token,
               'Content-Type': 'multipart/form-data',
             },
-          }).catch(err => {
-            showMessage('Upload photo tidak berhasil');
-          });
+          })
+            .then(resUpload => {
+              profile.profile_photo_url = `http://foodmarket-backend.buildwithangga.id/storage/${resUpload.data.data[0]}`;
+              storeData('userProfile', profile);
+              navigation.reset({index: 0, routes: [{name: 'SignUpSuccess'}]});
+            })
+            .catch(err => {
+              showMessage('Upload photo tidak berhasil');
+              navigation.reset({index: 0, routes: [{name: 'SignUpSuccess'}]});
+            });
+        } else {
+          storeData('userProfile', profile);
+          navigation.reset({index: 0, routes: [{name: 'SignUpSuccess'}]});
         }
         dispatch(setLoading(false));
-
-        navigation.replace('SignUpSuccess');
       })
       .catch(err => {
         dispatch(setLoading(false));
