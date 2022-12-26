@@ -1,7 +1,7 @@
 import {StyleSheet, Text, View} from 'react-native';
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Button, Gap, Header, TextInput} from '../../components';
-import {useForm} from '../../utils';
+import {getData, useForm} from '../../utils';
 import {useDispatch} from 'react-redux';
 import {signInAction} from '../../redux/action/auth';
 
