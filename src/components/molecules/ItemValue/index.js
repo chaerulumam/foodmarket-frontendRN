@@ -1,11 +1,16 @@
 import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
+import Number from '../Number';
 
-const ItemValue = ({label, value, colorValue = '#020202'}) => {
+const ItemValue = ({label, value, colorValue = '#020202', type}) => {
   return (
     <View style={styles.container}>
       <Text style={styles.lavel}>{label}</Text>
-      <Text style={styles.value(colorValue)}>{value}</Text>
+      {type === 'currency' ? (
+        <Number number={value} style={styles.value(colorValue)} />
+      ) : (
+        <Text style={styles.value(colorValue)}>{value}</Text>
+      )}
     </View>
   );
 };

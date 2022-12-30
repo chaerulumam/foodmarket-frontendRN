@@ -1,18 +1,51 @@
 import {ImageBackground, StyleSheet, Text, View} from 'react-native';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {FoodDetailPic, IcBackWhite} from '../../assets';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {Button, Counter, Number, Rating} from '../../components';
+import {getData} from '../../utils';
 
 const FoodDetail = ({navigation, route}) => {
   const {name, picturePath, rate, description, ingredients, price} =
     route.params;
-  const [totalItem, setTotalItem] = useState({});
+  const [totalItem, setTotalItem] = useState(1);
+  const [userProfile, setUserProfile] = useState({});
+
+  useEffect(() => {
+    getData('userProfile').then(res => {
+      setUserProfile(res);
+    });
+  }, []);
 
   const onCounterChange = value => {
     console.log('Couter', value);
     setTotalItem(value);
   };
+
+  const onOrder = () => {
+    const totalPrice = totalItem * price;
+    const driver = 50000;
+    const tax = (10 / 100) * totalPrice;
+    const total = totalPrice + driver + tax;
+
+    const data = {
+      item: {
+        name,
+        price,
+        picturePath,
+      },
+      transaction: {
+        totalItem,
+        totalPrice,
+        driver,
+        tax,
+        total,
+      },
+      userProfile,
+    };
+    navigation.navigate('OrderSummary', data);
+  };
+
   return (
     <View style={styles.page}>
       <ImageBackground source={{uri: picturePath}} style={styles.cover}>
@@ -39,10 +72,7 @@ const FoodDetail = ({navigation, route}) => {
             <Number number={price * totalItem} style={styles.priceTotal} />
           </View>
           <View style={styles.button}>
-            <Button
-              text="Order Now"
-              onPress={() => navigation.navigate('OrderSummary')}
-            />
+            <Button text="Order Now" onPress={onOrder} />
           </View>
         </View>
       </View>
