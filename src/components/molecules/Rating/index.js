@@ -8,9 +8,9 @@ const Rating = ({number}) => {
     let star = [];
     for (let i = 1; i <= 5; i++)
       if (i <= number) {
-        star.push(<IcStarOn />);
+        star.push(<IcStarOn key={i} />);
       } else {
-        star.push(<IcStarOff />);
+        star.push(<IcStarOff key={i} />);
       }
     return star;
   };
@@ -18,7 +18,7 @@ const Rating = ({number}) => {
   return (
     <View style={styles.ratingContainer}>
       <View style={styles.starContainer}>{renderStar()}</View>
-      <Number number={number} type="decimal" />
+      <Number number={number} type="decimal" style={styles.numberRating} />
     </View>
   );
 };
@@ -26,6 +26,11 @@ const Rating = ({number}) => {
 export default Rating;
 
 const styles = StyleSheet.create({
-  ratingContainer: {flexDirection: 'row', alignItems: 'center'},
+  ratingContainer: {flexDirection: 'row'},
   starContainer: {flexDirection: 'row', marginRight: 4},
+  numberRating: {
+    fontSize: 14,
+    fontFamily: 'Poppins-Regular',
+    color: '#8d92a3',
+  },
 });
