@@ -23,7 +23,7 @@ export const getFoodByTypes = types => dispatch => {
         dispatch({type: 'SET_POPULAR', value: res.data.data.data});
       }
 
-      if (types === 'recommended') {
+      if (types === 'recomended') {
         dispatch({type: 'SET_RECOMMENDED', value: res.data.data.data});
       }
     })

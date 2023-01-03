@@ -99,16 +99,16 @@ const Popular = () => {
 const Recomended = () => {
   const navigation = useNavigation();
   const dispatch = useDispatch();
-  const {recommended} = useSelector(state => state.homeReducer);
+  const {recomended} = useSelector(state => state.homeReducer);
 
   useEffect(() => {
-    dispatch(getFoodByTypes('recommended'));
+    dispatch(getFoodByTypes('recomended'));
   }, []);
 
   return (
     <ScrollView>
       <View style={{paddingTop: 8, paddingHorizontal: 24}}>
-        {recommended.map(item => {
+        {recomended.map(item => {
           return (
             <ItemListFood
               key={item.id}

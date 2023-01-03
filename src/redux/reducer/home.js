@@ -2,7 +2,7 @@ const initHome = {
   food: [],
   newTaste: [],
   popular: [],
-  recommended: [],
+  recomended: [],
 };
 
 export const homeReducer = (state = initHome, action) => {
@@ -30,7 +30,7 @@ export const homeReducer = (state = initHome, action) => {
   if (action.type === 'SET_RECOMMENDED') {
     return {
       ...state,
-      recommended: action.value,
+      recomended: action.value,
     };
   }
 
