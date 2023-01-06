@@ -6,7 +6,7 @@ import {Button, Counter, Number, Rating} from '../../components';
 import {getData} from '../../utils';
 
 const FoodDetail = ({navigation, route}) => {
-  const {name, picturePath, rate, description, ingredients, price} =
+  const {id, name, picturePath, rate, description, ingredients, price} =
     route.params;
   const [totalItem, setTotalItem] = useState(1);
   const [userProfile, setUserProfile] = useState({});
@@ -30,11 +30,13 @@ const FoodDetail = ({navigation, route}) => {
 
     const data = {
       item: {
+        id,
         name,
         price,
         picturePath,
       },
       transaction: {
+        id,
         totalItem,
         totalPrice,
         driver,
@@ -43,6 +45,7 @@ const FoodDetail = ({navigation, route}) => {
       },
       userProfile,
     };
+    console.log('Data checkout: ', data);
     navigation.navigate('OrderSummary', data);
   };
 
