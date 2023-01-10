@@ -109,7 +109,7 @@ const OrderSummary = ({navigation, route}) => {
         <ItemValue label="Name" value={userProfile.name} />
         <ItemValue label="Phone No." value={userProfile.phoneNumber} />
         <ItemValue label="Address" value={userProfile.address} />
-        <ItemValue label="House No." value="24 VTK" />
+        <ItemValue label="House No." value={userProfile.houseNumber} />
         <ItemValue label="City" value={userProfile.city} />
       </View>
 
