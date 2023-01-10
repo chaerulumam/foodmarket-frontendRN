@@ -16,16 +16,8 @@ import {ScrollView} from 'react-native-gesture-handler';
 
 const OrderSummary = ({navigation, route}) => {
   const {item, transaction, userProfile} = route.params;
-  const [token, setToken] = useState('');
   const [isPaymentOpen, setIsPaymentOpen] = useState(false);
   const [paymentURL, setPaymentURL] = useState('https://google.com');
-
-  useEffect(() => {
-    getData('token').then(res => {
-      console.log('Token: ', res);
-      setToken(res.value);
-    });
-  }, []);
 
   const onCheckout = () => {
     const data = {
@@ -35,29 +27,31 @@ const OrderSummary = ({navigation, route}) => {
       total: transaction.total,
       status: 'PENDING',
     };
-    Axios.post(`${API_HOST.url}/checkout`, data, {
-      headers: {
-        Authorization: token,
-      },
-    })
-      .then(res => {
-        console.log('checkout success: ', res.data);
-        setIsPaymentOpen(true);
-        setPaymentURL(res.data.data.payment_url);
+    getData('token').then(resToken => {
+      Axios.post(`${API_HOST.url}/checkout`, data, {
+        headers: {
+          Authorization: resToken.value,
+        },
       })
-      .catch(err => {
-        console.log('error checkout: ', err);
-      });
-    // navigation.replace('SuccessOrder');
+        .then(res => {
+          console.log('checkout success: ', res.data);
+          setIsPaymentOpen(true);
+          setPaymentURL(res.data.data.payment_url);
+        })
+        .catch(err => {
+          console.log('error checkout: ', err);
+        });
+      // navigation.replace('SuccessOrder');
+    });
   };
 
   const onNavChange = state => {
     console.log('Nav: ', state);
     const urlSuccess =
-      'https://7e82-182-3-38-53.ap.ngrok.io/midtrans/success?order_id=32&status_code=201&transaction_status=pending';
+      'https://c04c-182-3-42-76.ap.ngrok.io/midtrans/success?order_id=32&status_code=201&transaction_status=pending';
     const titleWeb = 'Laravel';
     if ((state.title = titleWeb)) {
-      navigation.replace('SuccessOrder');
+      navigation.reset({index: 0, routes: [{name: 'SuccessOrder'}]});
     }
   };
 

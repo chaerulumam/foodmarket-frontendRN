@@ -9,7 +9,7 @@ const OrderDetail = ({navigation}) => {
       <Header
         title="Payment"
         subTitle="You deserved better meal"
-        onBack={() => {}}
+        back={() => {}}
       />
       <View style={styles.content}>
         <Text style={styles.label}>OrderSummary Page</Text>
